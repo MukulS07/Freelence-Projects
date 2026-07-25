@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { images } from "./data";
+import { images, brand } from "./data";
 
 export function Hero() {
   return (
@@ -11,7 +11,7 @@ export function Hero() {
       <div className="absolute inset-0">
         <img
           src={images.hero}
-          alt="Rangoon Coffee Brewery interior at dusk"
+          alt={`${brand.name} ${brand.subname} interior at dusk`}
           width={1920}
           height={1280}
           className="ken-burns h-full w-full object-cover opacity-90"
@@ -27,7 +27,7 @@ export function Hero() {
         transition={{ delay: 0.25, duration: 0.7 }}
         className="absolute top-28 left-0 right-0 z-10 hidden md:flex justify-between container-x mx-auto max-w-[1440px] text-[10px] uppercase tracking-[0.4em] text-[color:var(--cream)]/60"
       >
-        <span>Est. 2011 · Yangon</span>
+        <span>Est. {brand.established} · {brand.city}</span>
         <span>Single Origin · Slow Roasted · Craft Poured</span>
       </motion.div>
 
@@ -39,7 +39,7 @@ export function Hero() {
           className="mb-8 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-[color:var(--brand)]"
         >
           <span className="h-px w-10 bg-[color:var(--brand)]" />
-          A Rangoon Ritual
+          A Daily Ritual
         </motion.span>
 
         <h1 className="font-display text-[13vw] leading-[0.95] tracking-tight text-balance md:text-[9vw] xl:text-[8rem]">
@@ -67,8 +67,7 @@ export function Hero() {
           transition={{ delay: 0.45, duration: 0.7 }}
           className="mt-10 max-w-md text-lg font-light leading-relaxed text-[color:var(--cream)]/75"
         >
-          Premium coffee. Warm atmosphere. Crafted experiences from the
-          highlands of Shan, poured with intention.
+          Premium coffee. Warm atmosphere. Crafted experiences, poured with intention.
         </motion.p>
 
         <motion.div
@@ -95,8 +94,8 @@ export function Hero() {
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 border-t border-[color:var(--cream)]/10 bg-[color:var(--ink)]/35 backdrop-blur-sm">
         <div className="container-x mx-auto grid max-w-[1440px] gap-4 py-4 text-[10px] uppercase tracking-[0.28em] text-[color:var(--cream)]/65 md:grid-cols-3">
-          <span>47 Sule Pagoda Road</span>
-          <span className="hidden md:block">Founded 2011</span>
+          <span>{brand.address}</span>
+          <span className="hidden md:block">Founded {brand.established}</span>
           <span className="hidden text-right md:block">Open daily · 07:00 — late</span>
         </div>
       </div>

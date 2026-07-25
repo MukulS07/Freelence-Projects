@@ -27,7 +27,7 @@ export function Navbar() {
       <div className="container-x mx-auto flex h-20 max-w-[1440px] items-center justify-between text-[color:var(--cream)]">
         <a href="#top" className="group flex items-center gap-3">
           <span className="grid h-9 w-9 place-items-center rounded-full border border-[color:var(--brand)]/60 font-display text-lg text-[color:var(--brand)]">
-            R
+            {brand.name.charAt(0)}
           </span>
           <span className="hidden sm:flex flex-col leading-none">
             <span className="font-display text-xl">{brand.name}</span>

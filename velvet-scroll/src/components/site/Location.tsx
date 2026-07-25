@@ -71,8 +71,8 @@ export function Location() {
                 </svg>
                 <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between rounded-sm bg-[color:var(--cream)]/10 backdrop-blur-md px-5 py-4 text-[color:var(--cream)]">
                   <div>
-                    <div className="text-[10px] uppercase tracking-[0.3em] opacity-60">Rangoon Coffee Brewery</div>
-                    <div className="mt-1 font-display text-lg">Sule Pagoda Road · Yangon</div>
+                    <div className="text-[10px] uppercase tracking-[0.3em] opacity-60">{brand.name} {brand.subname}</div>
+                    <div className="mt-1 font-display text-lg">{brand.shortLocation}</div>
                   </div>
                   <a
                     href="#"

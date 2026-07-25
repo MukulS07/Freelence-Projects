@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { brand } from "./data";
 
 export function Loader() {
   const [done, setDone] = useState(false);
@@ -25,7 +26,7 @@ export function Loader() {
             className="flex flex-col items-center gap-6"
           >
             <div className="font-display text-5xl md:text-7xl">
-              Rangoon<span className="text-[color:var(--brand)]">.</span>
+              {brand.name}<span className="text-[color:var(--brand)]">.</span>
             </div>
             <div className="relative h-px w-40 overflow-hidden bg-[color:var(--cream)]/15">
               <motion.div

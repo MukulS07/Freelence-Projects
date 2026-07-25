@@ -11,13 +11,15 @@ import gal4 from "@/assets/gallery-4.jpg";
 import gal5 from "@/assets/gallery-5.jpg";
 
 export const brand = {
-  name: "Rangoon",
+  name: "Your Cafe",
   subname: "Coffee Brewery",
   tagline: "Experience Coffee Beyond Ordinary",
-  established: "2011",
-  address: "47 Sule Pagoda Road, Kyauktada Township, Yangon",
-  phone: "+95 1 234 5678",
-  email: "hello@rangooncoffee.com",
+  established: "2020",
+  address: "123 Main Street, Your City, Country",
+  shortLocation: "Main Street · Your City",
+  city: "Your City",
+  phone: "+1 (555) 000-0000",
+  email: "hello@yourcafe.com",
   hours: [
     { day: "Mon — Fri", time: "07:00 — 22:30" },
     { day: "Sat — Sun", time: "08:00 — 23:00" },
@@ -50,25 +52,25 @@ export const experiences = [
   { title: "Espresso",   body: "Nine grams. Twenty-five seconds. A shot of pure origin." },
   { title: "Pour-Over",  body: "Water becomes a slow, deliberate conversation with the bean." },
   { title: "Latte Art",  body: "Silk-textured milk, poured with a steady hand and quiet focus." },
-  { title: "The Bean",   body: "Single-estate arabica from the Shan highlands, roasted weekly." },
+  { title: "The Bean",   body: "Single-estate arabica from high-altitude estates, roasted weekly." },
 ];
 
 export const timeline = [
-  { year: "2011", body: "First cup poured on 47 Sule Pagoda Road." },
-  { year: "2016", body: "First partner-farm planted in the Shan highlands." },
-  { year: "2021", body: "Awarded Best Independent Roastery, SE Asia." },
+  { year: "2020", body: "First cup poured at our flagship location on Main Street." },
+  { year: "2022", body: "First partner-farm planted in high-altitude soil." },
+  { year: "2024", body: "Awarded Best Independent Roastery." },
   { year: "2025", body: "New flagship opens with a slow-brew tasting bar." },
 ];
 
 export const drinks = [
-  { name: "Shan Highland",   tag: "Espresso · Single Origin",     img: drink1, price: "$5.50" },
-  { name: "Yangon Sunrise",  tag: "Cold Brew · Palm Sugar · Lime", img: drink2, price: "$6.00" },
-  { name: "Monsoon Latte",   tag: "Cardamom · Vanilla Bean",       img: drink3, price: "$6.50" },
-  { name: "Golden Cortado",  tag: "Turmeric · Cane",               img: drink4, price: "$5.75" },
-  { name: "Sule Flat White", tag: "Double Ristretto · Micro Foam", img: gal1,   price: "$5.80" },
-  { name: "Irrawaddy Mocha", tag: "72% Cacao · Sea Salt",          img: gal2,   price: "$6.20" },
-  { name: "Bagan Pour-Over", tag: "V60 · Bright · Floral",         img: gal3,   price: "$6.80" },
-  { name: "Night Market",    tag: "Espresso Tonic · Citrus",       img: gal4,   price: "$6.40" },
+  { name: "Highland Espresso", tag: "Espresso · Single Origin",     img: drink1, price: "$5.50" },
+  { name: "Sunrise Cold Brew", tag: "Cold Brew · Palm Sugar · Lime", img: drink2, price: "$6.00" },
+  { name: "Monsoon Latte",     tag: "Cardamom · Vanilla Bean",       img: drink3, price: "$6.50" },
+  { name: "Golden Cortado",    tag: "Turmeric · Cane",               img: drink4, price: "$5.75" },
+  { name: "Signature Flat White", tag: "Double Ristretto · Micro Foam", img: gal1, price: "$5.80" },
+  { name: "Artisan Mocha",     tag: "72% Cacao · Sea Salt",          img: gal2,   price: "$6.20" },
+  { name: "Single Origin Pour", tag: "V60 · Bright · Floral",        img: gal3,   price: "$6.80" },
+  { name: "Citrus Espresso Tonic", tag: "Espresso Tonic · Citrus",   img: gal4,   price: "$6.40" },
 ];
 
 export const menu = {
@@ -83,7 +85,7 @@ export const menu = {
   Breakfast: [
     { name: "Sourdough & Cultured Butter", note: "House sourdough",     price: "4.80" },
     { name: "Avocado Toast",               note: "Chili, lime, feta",   price: "8.50" },
-    { name: "Rangoon Egg Bowl",            note: "Soft yolk, rice",     price: "9.20" },
+    { name: "Breakfast Egg Bowl",          note: "Soft yolk, rice",     price: "9.20" },
     { name: "Buttermilk Pancakes",         note: "Wild honey, berries", price: "7.60" },
     { name: "Coconut Chia",                note: "Palm sugar, fruit",   price: "6.40" },
   ],
@@ -91,13 +93,13 @@ export const menu = {
     { name: "Basque Cheesecake",    note: "Burnt top",                price: "6.80" },
     { name: "Dark Chocolate Torte", note: "72% single origin",        price: "7.40" },
     { name: "Tiramisu",             note: "House espresso soak",      price: "6.90" },
-    { name: "Cardamom Cannelé",     note: "Rangoon spice",            price: "3.80" },
+    { name: "Cardamom Cannelé",     note: "House spice",              price: "3.80" },
     { name: "Salted Caramel Tart",  note: "Fleur de sel",             price: "5.60" },
   ],
 };
 
 export const events = [
-  { date: "Every Friday · 8pm",  title: "Live Jazz Nights",  body: "Intimate acoustic sets from Yangon's finest musicians." },
+  { date: "Every Friday · 8pm",  title: "Live Jazz Nights",  body: "Intimate acoustic sets from fine local musicians." },
   { date: "Saturdays · 10am",    title: "Barista Workshop",  body: "Learn extraction, dialling-in and latte art from our head roaster." },
   { date: "Sundays · 11am",      title: "Weekend Cupping",   body: "A guided tasting of this week's single origins." },
   { date: "Once a month",        title: "Seasonal Supper",   body: "A four-course tasting menu paired with rare micro-lots." },

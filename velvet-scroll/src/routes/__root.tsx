@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { brand } from "../components/site/data";
 
 function NotFoundComponent() {
   return (
@@ -77,11 +78,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Rangoon Coffee Brewery" },
+      { title: `${brand.name} ${brand.subname}` },
       {
         name: "description",
         content:
-          "A cinematic single-origin coffee experience in Yangon. Small-batch, hand-crafted, warm rooms — since 2014.",
+          `A cinematic single-origin coffee experience in ${brand.city}. Small-batch, hand-crafted, warm rooms — since ${brand.established}.`,
       },
       { name: "theme-color", content: "#1E1612" },
     ],

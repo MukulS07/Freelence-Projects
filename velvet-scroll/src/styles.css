@@ -37,7 +37,7 @@
 
 :root {
   --radius: 0.5rem;
-  /* Rangoon palette — warm terracotta + espresso */
+  /* Warm terracotta + espresso palette */
   --ink: oklch(0.19 0.022 40);           /* #241914 espresso */
   --secondary-ink: oklch(0.24 0.028 45); /* #2B2320 charcoal */
   --cream: oklch(0.94 0.024 75);         /* #F5EDE1 warm cream */

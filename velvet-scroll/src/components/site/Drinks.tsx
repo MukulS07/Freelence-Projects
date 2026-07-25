@@ -49,8 +49,7 @@ export function Drinks() {
               </h2>
             </div>
             <p className="hidden max-w-xs text-sm leading-relaxed text-[color:var(--cream)]/60 md:block">
-              Eight house signatures, built from Shan highland beans and Rangoon
-              spice. Scroll to explore.
+              Eight house signatures, built from single-origin beans and house-crafted syrups. Scroll to explore.
             </p>
           </div>
         </div>

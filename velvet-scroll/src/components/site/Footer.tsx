@@ -7,10 +7,10 @@ export function Footer() {
         <div className="grid gap-14 md:grid-cols-12">
           <div className="md:col-span-6">
             <div className="font-display text-[18vw] leading-[0.85] md:text-[10rem] tracking-tight">
-              Rangoon<span className="text-[color:var(--brand)]">.</span>
+              {brand.name}<span className="text-[color:var(--brand)]">.</span>
             </div>
             <p className="mt-8 max-w-md text-sm text-[color:var(--cream)]/50">
-              Small-batch coffee, warm rooms, slow mornings — since 2014.
+              Small-batch coffee, warm rooms, slow mornings — since {brand.established}.
             </p>
           </div>
 
@@ -53,8 +53,8 @@ export function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-[color:var(--cream)]/10 pt-8 text-[11px] uppercase tracking-[0.28em] text-[color:var(--cream)]/40 md:flex-row md:items-center">
-          <div>© {new Date().getFullYear()} Rangoon Coffee Brewery. All rights reserved.</div>
-          <div>Crafted with care · Yangon, Myanmar</div>
+          <div>© {new Date().getFullYear()} {brand.name} {brand.subname}. All rights reserved.</div>
+          <div>Crafted with care · {brand.city}</div>
         </div>
       </div>
     </footer>

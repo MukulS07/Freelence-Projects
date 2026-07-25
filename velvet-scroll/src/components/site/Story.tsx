@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { Reveal } from "./Reveal";
-import { images, experiences, timeline } from "./data";
+import { images, experiences, timeline, brand } from "./data";
 
 export function Story() {
   const ref = useRef<HTMLDivElement>(null);
@@ -22,7 +22,7 @@ export function Story() {
         <div className="grid gap-16 md:grid-cols-12 md:gap-20">
           <div className="md:col-span-6 md:sticky md:top-32 md:self-start">
             <span className="text-[11px] uppercase tracking-[0.4em] text-[color:var(--brand)]">
-              — Our Story · Founded 2011
+              — Our Story · Founded {brand.established}
             </span>
             <h2 className="mt-6 font-display text-5xl leading-[1] md:text-7xl">
               A ritual of
@@ -32,16 +32,14 @@ export function Story() {
             <div className="mt-10 space-y-6 text-lg leading-relaxed text-[color:var(--muted-foreground)]">
               <Reveal>
                 <p>
-                  Rangoon began in a small wooden room off Sule Pagoda Road
-                  with a single roaster and a stubborn belief — that a cup of
-                  coffee can be an event, not an errand.
+                  {brand.name} began in a small wooden room with a single roaster
+                  and a stubborn belief — that a cup of coffee can be an event, not an errand.
                 </p>
               </Reveal>
               <Reveal delay={0.05}>
                 <p>
-                  A decade on, two brothers still roast every bean by hand,
-                  still source from farms they've walked, and still serve every
-                  cup with intention.
+                  Years on, we still roast every bean by hand, still source from
+                  farms we've walked, and still serve every cup with intention.
                 </p>
               </Reveal>
             </div>
@@ -88,7 +86,7 @@ export function Story() {
                     Origin
                   </div>
                   <div className="mt-1 font-display text-xl">
-                    Shan Highlands, 1,400m
+                    Highland Estate, 1,400m
                   </div>
                 </div>
               </div>

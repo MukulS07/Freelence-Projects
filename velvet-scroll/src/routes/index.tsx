@@ -13,17 +13,18 @@ import { Footer } from "@/components/site/Footer";
 import { Loader } from "@/components/site/Loader";
 import { Marquee } from "@/components/site/Marquee";
 import { useLenis } from "@/components/site/useLenis";
+import { brand } from "@/components/site/data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Rangoon Coffee Brewery — Experience Coffee Beyond Ordinary" },
+      { title: `${brand.name} ${brand.subname} — ${brand.tagline}` },
       {
         name: "description",
         content:
-          "A cinematic coffee experience in Yangon. Small-batch single-origin coffee, hand-crafted drinks, warm rooms — since 2014.",
+          `A cinematic coffee experience in ${brand.city}. Small-batch single-origin coffee, hand-crafted drinks, warm rooms — since ${brand.established}.`,
       },
-      { property: "og:title", content: "Rangoon Coffee Brewery" },
+      { property: "og:title", content: `${brand.name} ${brand.subname}` },
       {
         property: "og:description",
         content:

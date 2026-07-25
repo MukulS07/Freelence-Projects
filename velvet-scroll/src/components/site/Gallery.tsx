@@ -1,5 +1,5 @@
 import { Reveal } from "./Reveal";
-import { images } from "./data";
+import { images, brand } from "./data";
 
 export function Gallery() {
   const items = [
@@ -16,7 +16,7 @@ export function Gallery() {
         <div className="mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
             <span className="text-[11px] uppercase tracking-[0.4em] text-[color:var(--brand)]">
-              — Inside Rangoon
+              — Inside {brand.name}
             </span>
             <h2 className="mt-6 font-display text-5xl md:text-7xl leading-[1] max-w-2xl">
               Moments,
