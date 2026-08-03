@@ -1,6 +1,6 @@
 # Freelance Projects
 
-A collection of freelance and client projects — websites, redesigns, menus and other design/dev work delivered as part of my freelancing practice.
+A collection of freelance and client projects — websites, redesigns and other design/dev work delivered as part of my freelancing practice.
 
 This repository serves as both a **working archive** of client deliverables and a **portfolio index** of completed and in-progress work.
 
