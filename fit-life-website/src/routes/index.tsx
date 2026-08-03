@@ -19,7 +19,14 @@ import {
   Zap,
 } from "lucide-react";
 import heroGym from "@/assets/hero-gym.jpg";
-import aboutGym from "@/assets/about-gym.jpg";
+import liftVideo from "@/assets/lift.mp4.asset.json";
+import liftWebm from "@/assets/lift.webm.asset.json";
+
+import liftPoster from "@/assets/lift-poster.jpg.asset.json";
+import philoVideo from "@/assets/philo.mp4.asset.json";
+import philoWebm from "@/assets/philo.webm.asset.json";
+import philoPoster from "@/assets/philo-poster.jpg.asset.json";
+
 import program1 from "@/assets/program-1.jpg";
 import program2 from "@/assets/program-2.jpg";
 import program3 from "@/assets/program-3.jpg";
@@ -160,18 +167,73 @@ function Nav() {
 }
 
 /* ---------- Hero ---------- */
+function HeroVideo() {
+  const ref = useRef<HTMLVideoElement | null>(null);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    el.playbackRate = 0.85;
+    const play = () => el.play().catch(() => {});
+    play();
+    const onVisibility = () => (document.hidden ? el.pause() : play());
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => document.removeEventListener("visibilitychange", onVisibility);
+  }, []);
+
+  return (
+    <video
+      ref={ref}
+      poster={liftPoster.url}
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="auto"
+      aria-hidden="true"
+      onCanPlay={() => setReady(true)}
+      className={`absolute inset-0 h-full w-full scale-105 object-cover transition-opacity duration-1000 ${
+        ready ? "opacity-100" : "opacity-0"
+      }`}
+    >
+      <source src={liftWebm.url} type="video/webm" />
+      <source src={liftVideo.url} type="video/mp4" />
+    </video>
+
+  );
+}
+
 function Hero() {
+
   return (
     <section id="top" className="relative min-h-screen overflow-hidden bg-background pt-24">
-      <img
-        src={heroGym}
-        alt="Athlete training in dark gym"
-        width={1920}
-        height={1200}
-        className="absolute inset-0 h-full w-full object-cover opacity-70"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/50 to-background" />
-      <div className="absolute inset-0 bg-[radial-gradient(1000px_500px_at_80%_20%,color-mix(in_oklab,var(--primary)_25%,transparent),transparent)]" />
+      {/* Cinematic video backdrop — poster paints instantly, video fades in on play */}
+      <div className="absolute inset-0 overflow-hidden">
+        <img
+          src={liftPoster.url}
+          alt="Athlete lifting weights in a dark gym"
+          width={1920}
+          height={1080}
+          className="absolute inset-0 h-full w-full scale-105 object-cover"
+        />
+        <HeroVideo />
+        {/* Grade: keep the lifter visible, protect the type on the left */}
+        <div className="absolute inset-0 bg-background/15" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/55 via-transparent to-background" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/35 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(900px_500px_at_82%_25%,color-mix(in_oklab,var(--primary)_16%,transparent),transparent)]" />
+
+        <div
+          className="absolute inset-0 opacity-[0.06] mix-blend-overlay"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(0deg, rgba(255,255,255,0.5) 0 1px, transparent 1px 3px)",
+          }}
+        />
+      </div>
+
 
       <div className="relative mx-auto grid min-h-[calc(100vh-6rem)] max-w-[1440px] grid-cols-12 gap-6 px-6 pb-16 lg:px-10">
         {/* Left rail */}
@@ -287,16 +349,7 @@ function About() {
         <SectionMeta index="01" label="The Studio" />
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-12 md:col-span-5">
-            <div className="reveal aspect-[4/5] overflow-hidden">
-              <img
-                src={aboutGym}
-                alt="Interior of the training floor"
-                width={1200}
-                height={1400}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-[1200ms] hover:scale-105"
-              />
-            </div>
+            <PhilosophyVideo />
           </div>
           <div className="col-span-12 md:col-span-7 md:pl-6">
             <div className="reveal">
@@ -335,6 +388,172 @@ function StatBlock({ end, suffix, label, start }: { end: number; suffix: string;
     </div>
   );
 }
+
+/* ---------- Philosophy cinematic video ---------- */
+function PhilosophyVideo() {
+  const wrapRef = useRef<HTMLDivElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const innerRef = useRef<HTMLDivElement | null>(null);
+  const [entered, setEntered] = useState(false);
+  const [load, setLoad] = useState(false);
+  const [ready, setReady] = useState(false);
+
+  // Lazy-load + entrance
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            setLoad(true);
+            setEntered(true);
+          }
+        }
+      },
+      { rootMargin: "300px 0px", threshold: 0.05 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  // Scroll parallax + scale (rAF, GPU transforms)
+  useEffect(() => {
+    const el = wrapRef.current;
+    const inner = innerRef.current;
+    if (!el || !inner) return;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const desktop = window.matchMedia("(min-width: 768px)").matches;
+    if (reduced || !desktop) return;
+
+    let raf = 0;
+    let current = 0;
+    let target = 0;
+
+    const compute = () => {
+      const r = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      // 0 when entering from bottom -> 1 when leaving at top
+      target = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
+    };
+
+    let running = false;
+    const loop = () => {
+      const diff = target - current;
+      current += diff * 0.12; // smooth easing
+      const scale = 1 + 0.12 * current;
+      const y = -28 * current;
+      inner.style.transform = `translate3d(0, ${y.toFixed(2)}px, 0) scale(${scale.toFixed(4)})`;
+      if (Math.abs(diff) < 0.0005) {
+        running = false;
+        raf = 0;
+        return;
+      }
+      raf = requestAnimationFrame(loop);
+    };
+
+    const kick = () => {
+      if (running) return;
+      running = true;
+      raf = requestAnimationFrame(loop);
+    };
+
+    // Only react to scroll while the section is anywhere near the viewport
+    let near = true;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        near = e.isIntersecting;
+        if (near) {
+          compute();
+          kick();
+        }
+      },
+      { rootMargin: "200px 0px" },
+    );
+    io.observe(el);
+
+    const onScroll = () => {
+      if (!near) return;
+      compute();
+      kick();
+    };
+    compute();
+    current = target;
+    kick();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    return () => {
+      io.disconnect();
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [load]);
+
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v || !load) return;
+    const play = () => v.play().catch(() => {});
+    play();
+    const onVis = () => (document.hidden ? v.pause() : play());
+    document.addEventListener("visibilitychange", onVis);
+    // Don't decode frames while the section is offscreen — keeps scrolling at 60fps
+    const io = new IntersectionObserver(
+      ([e]) => (e.isIntersecting && !document.hidden ? play() : v.pause()),
+      { threshold: 0.01 },
+    );
+    io.observe(v);
+    return () => {
+      io.disconnect();
+      document.removeEventListener("visibilitychange", onVis);
+    };
+  }, [load]);
+
+  return (
+    <div
+      ref={wrapRef}
+      className="relative aspect-[4/5] overflow-hidden rounded-sm will-change-transform"
+      style={{
+        opacity: entered ? 1 : 0,
+        transform: entered ? "scale(1)" : "scale(0.96)",
+        transition: "opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1)",
+      }}
+    >
+      <div ref={innerRef} className="absolute inset-0 will-change-transform">
+        {load && (
+          <video
+            ref={videoRef}
+            poster={philoPoster.url}
+            autoPlay
+            muted
+            loop
+            playsInline
+            controls={false}
+            disablePictureInPicture
+            preload="metadata"
+            aria-hidden="true"
+            onCanPlay={() => setReady(true)}
+            className={`h-full w-full object-cover transition-opacity duration-1000 ${ready ? "opacity-100" : "opacity-0"}`}
+          >
+            <source src={philoWebm.url} type="video/webm" />
+            <source src={philoVideo.url} type="video/mp4" />
+          </video>
+        )}
+        <img
+          src={philoPoster.url}
+          alt="Athlete training on the studio floor"
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${ready ? "opacity-0" : "opacity-100"}`}
+        />
+      </div>
+      {/* Premium dark grade */}
+      <div className="pointer-events-none absolute inset-0 bg-background/55" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
+    </div>
+  );
+}
+
+
 
 /* ---------- Programs ---------- */
 function Programs() {
