@@ -6,7 +6,7 @@ An **AI-Powered Content & Social Growth Agency Website** built specifically for 
 
 ## 🌐 Live & Deployment Links
 
-- **Live Demo / Deployment Link:** `[Add Live URL Here]` *[](https://agencysample.vercel.app/)*
+- **Live Demo / Deployment Link:** `[Add Live URL Here]` *(https://agencysample.vercel.app/)*
 - **GitHub Repository:** [Freelence-Projects / agency-website](https://github.com/MukulS07/Freelence-Projects/tree/main/agency-website)
 
 ---
