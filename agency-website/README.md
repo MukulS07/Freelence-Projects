@@ -1,24 +1,67 @@
-# Agency Design Hub
+# 🚀 Agency Website
 
-this all are design for the agency webiste
+An **AI-Powered Content & Social Growth Agency Website** built specifically for food, beverage, and café brands. Featuring high-impact visuals, interactive glitch hero sections, smooth scrolling, and dedicated pages for service showcases, pricing, and client contact.
 
-This project was built with [Lovable](https://lovable.dev).
+---
 
-## Build with Lovable
+## 🌐 Live & Deployment Links
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/a1fc7ab9-494b-4e00-ab25-69252a86990b).
+- **Live Demo / Deployment Link:** `[Add Live URL Here]` *(e.g., https://your-agency-website.vercel.app)*
+- **GitHub Repository:** [Freelence-Projects / agency-website](https://github.com/MukulS07/Freelence-Projects/tree/main/agency-website)
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+---
 
-## Development
+## ✨ Features & Highlights
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+- 🎬 **AI Video Production Showcase** — Demonstrating Reels, product films, and cinematic ad content.
+- 📲 **Social Media & Growth Strategy** — Content planning, posting, and brand engagement.
+- 🎨 **Graphic Design & Motion Ads** — Visual assets, menus, banners, and animated ads.
+- ⚡ **Interactive UI Components** — Built with Tailwind CSS, Framer Motion, and Lenis smooth scrolling.
+- 📱 **Fully Responsive Layout** — Optimized for desktop, tablet, and mobile devices.
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** React 19, TanStack Router & TanStack Start
+- **Styling:** Tailwind CSS v4, Radix UI Primitives, Lucide Icons
+- **Animations & Motion:** Motion / Framer Motion, Lenis Smooth Scroll
+- **Build Tool:** Vite, TypeScript
+
+---
+
+## 💻 Local Development Setup
+
+Follow these steps to run the project locally on your machine:
+
+1. **Navigate to the project directory:**
+   ```bash
+   cd agency-website
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   # or using bun:
+   bun install
+   ```
+
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   # or using bun:
+   bun run dev
+   ```
+
+4. **Open in Browser:**
+   Navigate to `http://localhost:5173` (or the port specified in your terminal output).
+
+---
+
+## 📦 Build for Production
+
+To create an optimized production build:
+
+```bash
+npm run build
 ```

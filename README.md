@@ -1,6 +1,6 @@
 # Freelance Projects
 
-A collection of freelance and client projects — websites, redesigns and other design/dev work delivered as part of my freelancing practice.
+A collection of freelance and client projects — websites, redesigns, and interactive web applications.
 
 This repository serves as both a **working archive** of client deliverables and a **portfolio index** of completed and in-progress work.
 
@@ -9,31 +9,22 @@ This repository serves as both a **working archive** of client deliverables and 
 ## 📁 Repository Structure
 
 ```
-freelance-projects/
-├── clients/
-│   ├── client-name-project-type/
-│   │   ├── src/              # source files (code, design files, assets)
-│   │   ├── deliverables/     # final exported files sent to client
-│   │   ├── notes.md          # brief requirements, scope, revisions log
-│   │   └── README.md         # project-specific overview
-│   └── ...
-├── templates/                # reusable starter templates (site boilerplates, menu/poster templates)
-├── assets/                   # shared fonts, icons, stock resources used across projects
-└── README.md                 # this file
+Freelence-Projects/
+├── agency-website/       # AI-Powered Content & Social Growth Agency Website
+├── fit-life-website/      # Fitness & Gym Management / Client Portal Website
+├── velvet-scroll/         # Velvet Scroll Interactive Project
+└── README.md              # Project archive index
 ```
-
-Each client project lives in its own folder under `clients/`, named using the convention:
-`clientname-projecttype` (e.g. `jheelcafe-website`, `sunrise-boutique-poster`).
 
 ---
 
 ## 📌 Project Index
 
-| # | Client | Project Type | Status | Tech / Tools | Delivered |
-|---|--------|--------------|--------|---------------|-----------|
-| 1 | — | — | Not started | — | — |
-
-> This table is updated as new projects begin and are completed. Status values: `Inquiry` → `In Progress` → `Review` → `Delivered`.
+| # | Project / Client | Project Description | Status | Tech / Tools | Link / Folder |
+|---|------------------|---------------------|--------|---------------|---------------|
+| 1 | **Agency Website** | AI Content & Social Growth for Cafés/Food Brands | `In Progress` | React, TanStack Start, Tailwind, Vite | [`./agency-website`](./agency-website) |
+| 2 | **Fit Life Website** | Fitness & Gym Client Platform | `In Progress` | React, TanStack Router, Tailwind, Vite | [`./fit-life-website`](./fit-life-website) |
+| 3 | **Velvet Scroll** | Interactive Web Experience | `In Progress` | HTML / CSS / JS | [`./velvet-scroll`](./velvet-scroll) |
 
 ---
 
@@ -41,42 +32,36 @@ Each client project lives in its own folder under `clients/`, named using the co
 
 Tools and technologies commonly used across projects in this repo:
 
-- **Web Development:** HTML, CSS, JavaScript, React, Tailwind CSS
+- **Frontend & Frameworks:** React, TanStack Router/Start, Vite, HTML, CSS, JavaScript
+- **Styling & UI:** Tailwind CSS, Radix UI, Framer Motion, Lucide Icons
 - **Design:** Figma, Canva
 - **Hosting/Deployment:** Netlify, Vercel, GitHub Pages
-- **Other:** Git & GitHub for version control
-
-*(Updated as new tools are used on specific projects.)*
+- **Version Control:** Git & GitHub
 
 ---
 
-## 🔁 Workflow
+## 💻 Local Development
 
-1. **Inquiry & Scope** — Requirements gathered and noted in the project's `notes.md`.
-2. **Development** — Work done inside the project's `src/` folder, committed incrementally.
-3. **Client Review** — Draft shared with client for feedback; revisions tracked in `notes.md`.
-4. **Delivery** — Final files placed in `deliverables/`; client handed off files or live link.
-5. **Archive** — Project marked `Delivered` in the index table above.
+To run any individual project:
 
----
+```bash
+# Navigate to the project directory
+cd <project-folder-name>
 
-## ✅ Conventions
+# Install dependencies
+npm install
 
-- Each project folder includes its own short `README.md` describing the brief, scope, and outcome.
-- Sensitive information (API keys, client credentials, payment details) is **never committed** — stored in local `.env` files excluded via `.gitignore`.
-- Commit messages follow a simple convention: `[client-name] short description of change`.
-- Finished, high-value projects may later be split into their own standalone repository if the client requests ownership transfer or for portfolio purposes.
+# Start local development server
+npm run dev
+```
 
 ---
 
-## 📬 About
+## 📬 Contact & Inquiries
 
-This repository is maintained as part of an independent freelancing practice, offering:
+Maintained as part of an independent freelancing practice offering:
+- Custom Website Design & Development
+- Modern Web Application Redesigns
+- Brand Visuals & Content Creation
 
-- Website design & development
-- Website redesigns / modernization
-- Menu design (cafes, restaurants)
-
-Open to new project inquiries — reach out via [Gmail](shrey.joshi.work@gmail.com) / [Portfolio](https://www.shreyjoshi.online/) / [LinkedIn](https://www.linkedin.com/in/shrey-joshi-1b038a249/).
-
----
+Reach out via GitHub or email for inquiries.
